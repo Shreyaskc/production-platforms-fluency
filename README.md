@@ -18,11 +18,11 @@ From this directory: `python3 -m http.server 8084`, then open `http://localhost:
 
 Coverage: replication/quorums/fencing; indexes/query plans; CDC/backfills/schema evolution; checkpoints/idempotency/outbox; isolation/admission; ACL revocation; secure connectors; ACL-aware retrieval/DLP/audit; freshness/SLOs/budgets; incident command; capacity/cost/storage; Kubernetes/networking; migrations/rollback; architecture defense.
 
-Prerequisites are linked to AI Learning, System Design Fluency and DSA Fluency via the Courses registry in `app.js`. Add future courses only with `launched:true` after verifying their live URLs. Do not pre-link planned siblings. Existing sites were supplied by the user; connectivity limitations during creation are documented in TESTING.md.
+Prerequisites are linked to AI Learning, System Design Fluency and DSA Fluency via the Courses registry in `courses.json`. Add future courses only with `launched:true` after verifying their live URLs. Do not pre-link planned siblings. Existing sites were supplied by the user; connectivity limitations during creation are documented in TESTING.md.
 
 ## Content and contribution
 
-`content.js` holds lesson data. `app.js` holds views, glossary, case studies and registry. `style.css` handles responsive layout. Keep lesson IDs stable for saved browser progress. Add original exercises with unit-bearing calculations, failure timelines and primary references. State assumptions and implementation boundaries. Never add private examples, personal achievements or copied paid content. Validate references for the deployed software version.
+`content.js` holds lesson data. `app.js` holds views, glossary and case studies; `courses.json` holds navigation. `style.css` handles responsive layout. Keep lesson IDs stable for saved browser progress. Add original exercises with unit-bearing calculations, failure timelines and primary references. State assumptions and implementation boundaries. Never add private examples, personal achievements or copied paid content. Validate references for the deployed software version.
 
 Local storage key `ppf-v1` stores only notes and completed IDs; no analytics or backend. Reset prompts before deleting local progress. Storage failure leaves notes editable but unsaved.
 
@@ -35,3 +35,16 @@ Browser QA should cover search, lesson navigation, details disclosures, note per
 ## Publication
 
 Public repository and GitHub Pages release authorized in the parent conversation. No credential changes, scope expansion, paid services or edits to sibling repositories. Static branch deployment needs only these source files; no build step.
+
+## Six-course directory
+
+The Courses switcher lists verified public sites. The current course is marked, and the native disclosure supports keyboard and mobile use. Progress remains local to each app. Registry: `courses.json`; markup helper: `tools/course_switcher.py`; shared styles: `courses.css`.
+
+- [AI Learning](https://shreyaskc.github.io/AI-Learning/) · [repository](https://github.com/Shreyaskc/AI-Learning)
+- [System Design Fluency](https://shreyaskc.github.io/system-design-fluency/) · [repository](https://github.com/Shreyaskc/system-design-fluency)
+- [DSA Fluency](https://shreyaskc.github.io/dsa-fluency/) · [repository](https://github.com/Shreyaskc/dsa-fluency)
+- [Principal Leadership Fluency](https://shreyaskc.github.io/principal-leadership-fluency/) · [repository](https://github.com/Shreyaskc/principal-leadership-fluency)
+- [Production Platforms Fluency](https://shreyaskc.github.io/production-platforms-fluency/) · [repository](https://github.com/Shreyaskc/production-platforms-fluency)
+- [Practical Engineering Fluency](https://shreyaskc.github.io/practical-engineering-fluency/) · [repository](https://github.com/Shreyaskc/practical-engineering-fluency)
+
+After changing the verified registry, run `python3 tools/course_switcher.py` to refresh navigation; validate with `python3 tools/course_switcher.py --check`. System Design also regenerates navigation through its normal build.
